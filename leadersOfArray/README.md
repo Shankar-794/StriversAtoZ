@@ -30,3 +30,19 @@ The inner loop checks if there is any element to the right that is greater than 
 Begin by initializing the outer loop pointer at the start element and set it as the current leader.
 If any element traversed is found to be greater than the current leader, the element is not considered a leader, and the outer loop pointer is incremented by 1, setting the next element as the current leader.
 If no other element to the right is greater than the current element, it is added to the answer array as a leader element.
+## ⏲ Time Complexity: 
+O(n²), where N is the size of the input array. This is because we have a nested loop where the outer loop runs N times and the inner loop runs up to N times in the worst case.
+
+Space Complexity: O(n), as we are using only a constant amount of extra space for the answer array, which does not depend on the input size.
+
+## 🧠 Optimal Approach
+Algorithm
+Set a variable max to the last element of the array (nums[sizeOfArray - 1]), as the last element is always a leader.
+Create an empty list ans to store the leader elements, and initially add the last element of the array to this list, as it is always a leader.
+Start from the second last element (index = sizeOfArray - 2) and move towards the first element (index = 0).
+For each element, compare it with the max variable. If the current element is greater than max, add this element to the ans list and update max to the current element.
+After processing all elements, the ans list will contain all the leader elements in reverse order. Reverse the ans list and return it.
+## ⏲ Complexity Analysis
+Time Complexity: O(N), where N is the size of the input array. This is because we traverse the array only once.
+
+Space Complexity: O(N), as we are using only a constant amount of extra space.
